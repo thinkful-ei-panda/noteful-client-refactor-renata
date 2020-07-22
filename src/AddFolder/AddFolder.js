@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NotefulContext from "../NotefulContext.js";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export default class AddFolder extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class AddFolder extends Component {
   render() {
     if (this.props.active) {
       return (
-        <form className="add-folder" onSubmit={e => this.handleSubmit(e)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <label htmlFor="add-folder">Add Folder</label>
           <input name="add-folder" id="add-folder" type="text" ref={this.nameInput} placeholder={'Folder Name'} required></input>
           <input type="submit" value="Submit" id="add-folder-submit" />

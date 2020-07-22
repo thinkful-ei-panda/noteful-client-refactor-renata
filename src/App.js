@@ -6,8 +6,6 @@ import FolderList from './FolderList/FolderList';
 import NoteList from './NoteList/NoteList';
 import FullNoteMain from './FullNoteMain/FullNoteMain';
 import FullNoteSide from './FullNoteSide/FullNoteSide';
-import AddFolder from './AddFolder/AddFolder';
-import AddNote from './AddNote/AddNote';
 import './App.css';
 
 //TO RUN Noteful JSON Server
@@ -34,7 +32,7 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': 'Bearer 910237e9-95fd-4ecf-b17b-4af6605a1f01',
+        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
         'content-type': 'application/json',
       },
     })
@@ -54,7 +52,7 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/folders/`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 910237e9-95fd-4ecf-b17b-4af6605a1f01',
+        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
         'content-type': 'application/json',
       },
       body: JSON.stringify({
@@ -75,7 +73,7 @@ class App extends React.Component {
     fetch(`http://localhost:8000/api/${destination}/`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 910237e9-95fd-4ecf-b17b-4af6605a1f01',
+        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
         'content-type': 'application/json',
       },
       body: JSON.stringify(body)
@@ -94,13 +92,12 @@ class App extends React.Component {
     this.sendGetRequest();
   }
 
-  // grabs notes and folders from server, then update state
   sendGetRequest() {
     Promise.all([
       fetch('http://localhost:8000/api/notes', {
         headers:
         {
-          'Authorization': 'Bearer 910237e9-95fd-4ecf-b17b-4af6605a1f01',
+          'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
           'content-type': 'application/json',
         },
 
@@ -108,12 +105,12 @@ class App extends React.Component {
       fetch('http://localhost:8000/api/folders', {
         headers:
         {
-          'Authorization': 'Bearer 910237e9-95fd-4ecf-b17b-4af6605a1f01',
+          'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
           'content-type': 'application/json',
         },
       })
     ])
-      // checks to make sure there are no errors in ajax responses
+    
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
           return notesRes.json().then(e => Promise.reject(e));
