@@ -1,0 +1,30 @@
+.flex-container{
+  text-align: center;
+  margin: 0 auto; 
+  display: flex;
+}
+.flex-container .column{
+  padding: 10px;
+  flex: 3;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar{
+  flex: 1;
+  border-right: 1px solid #424242;
+  min-width: 20vw;
+}
+
+main{
+  min-width: 500px;
+}
+
+header{
+  text-align: center;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 10px;
+}
