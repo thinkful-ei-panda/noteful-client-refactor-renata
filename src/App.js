@@ -117,7 +117,7 @@ class App extends React.Component {
         if (!foldersRes.ok)
           return foldersRes.json().then(e => Promise.reject(e));
 
-        // returns the notes and folders as json objects in an array
+        
         return Promise.all([notesRes.json(), foldersRes.json()]);
       })
       // sets state for both notes and folders
