@@ -8,6 +8,8 @@ import FullNoteMain from './FullNoteMain/FullNoteMain';
 import FullNoteSide from './FullNoteSide/FullNoteSide';
 import './App.css';
 
+let URL = process.env.BASE_URL;
+
 //TO RUN Noteful JSON Server
 //git clone https://github.com/tomatau/noteful-json-server
 //cd ./noteful-json-server
@@ -29,7 +31,7 @@ class App extends React.Component {
 
   handleDeleteNote = (noteId) => {
     console.log(noteId)
-    fetch(`http://localhost:8000/api/notes/${noteId}`, {
+    fetch(`${URL}/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
@@ -49,7 +51,7 @@ class App extends React.Component {
   };
 
   handleCreateFolder = (name) => {
-    fetch(`http://localhost:8000/api/folders/`, {
+    fetch(`${URL}/api/folders/`, {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
@@ -70,7 +72,7 @@ class App extends React.Component {
   }
 
   handlePostRequest = (body, destination) => {
-    fetch(`http://localhost:8000/api/${destination}/`, {
+    fetch(`${URL}/api/${destination}/`, {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
@@ -94,7 +96,7 @@ class App extends React.Component {
 
   sendGetRequest() {
     Promise.all([
-      fetch('http://localhost:8000/api/notes', {
+      fetch(`${URL}/api/notes`, {
         headers:
         {
           'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
@@ -102,7 +104,7 @@ class App extends React.Component {
         },
 
       }),
-      fetch('http://localhost:8000/api/folders', {
+      fetch(`${URL}/api/folders`, {
         headers:
         {
           'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',

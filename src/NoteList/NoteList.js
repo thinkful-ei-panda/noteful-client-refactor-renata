@@ -52,7 +52,7 @@ export default class NoteList extends React.Component {
 
     if (this.props.match.params.folderId) {
       noteList = notes
-        .filter(note => note.folder_id == this.props.match.params.folderId)
+        .filter(note => note.folder_id === this.props.match.params.folderId)
         .map(note => {
           return <Note
             key={note.id}
