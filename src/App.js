@@ -7,8 +7,8 @@ import NoteList from './NoteList/NoteList';
 import FullNoteMain from './FullNoteMain/FullNoteMain';
 import FullNoteSide from './FullNoteSide/FullNoteSide';
 import './App.css';
+import { BASE_URL, API_KEY } from './config';
 
-let URL = process.env.BASE_URL;
 
 //TO RUN Noteful JSON Server
 //git clone https://github.com/tomatau/noteful-json-server
@@ -31,10 +31,10 @@ class App extends React.Component {
 
   handleDeleteNote = (noteId) => {
     console.log(noteId)
-    fetch(`${URL}/api/notes/${noteId}`, {
+    fetch(`${BASE_URL}/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
-        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
+        'Authorization': `Bearer ${API_KEY}`,
         'content-type': 'application/json',
       },
     })
@@ -51,10 +51,10 @@ class App extends React.Component {
   };
 
   handleCreateFolder = (name) => {
-    fetch(`${URL}/api/folders/`, {
+    fetch(`${BASE_URL}/api/folders/`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
+        'Authorization': `Bearer ${API_KEY}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
@@ -72,10 +72,10 @@ class App extends React.Component {
   }
 
   handlePostRequest = (body, destination) => {
-    fetch(`${URL}/api/${destination}/`, {
+    fetch(`${BASE_URL}/api/${destination}/`, {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
+        'Authorization': `Bearer ${API_KEY}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify(body)
@@ -96,18 +96,18 @@ class App extends React.Component {
 
   sendGetRequest() {
     Promise.all([
-      fetch(`${URL}/api/notes`, {
+      fetch(`${BASE_URL}/api/notes`, {
         headers:
         {
-          'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
+          'Authorization': `Bearer ${API_KEY}`,
           'content-type': 'application/json',
         },
 
       }),
-      fetch(`${URL}/api/folders`, {
+      fetch(`${BASE_URL}/api/folders`, {
         headers:
         {
-          'Authorization': 'Bearer ebfb7ff0-b2f6-41c8-bef3-4fba17be410c',
+          'Authorization': `Bearer ${API_KEY}`,
           'content-type': 'application/json',
         },
       })
