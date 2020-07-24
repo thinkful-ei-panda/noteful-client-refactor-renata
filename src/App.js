@@ -9,8 +9,7 @@ import FullNoteSide from './FullNoteSide/FullNoteSide';
 import './App.css';
 import { API_KEY } from './config';
 import BASE_URL from './config';
-console.log(process.env.NODE_ENV);
-console.log(BASE_URL);
+
 
 //TO RUN Noteful JSON Server
 //git clone https://github.com/tomatau/noteful-json-server
