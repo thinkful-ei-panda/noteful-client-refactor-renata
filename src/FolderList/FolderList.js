@@ -44,7 +44,9 @@ export default class FolderList extends React.Component {
     let folderList = [];
 
     if (this.props.match.params.folderId) {
-      folderList = folders.find(folder => folder.id === this.props.match.params.folderId)
+      folderList = folders.find((folder) =>
+          parseInt(folder.id) === parseInt(this.props.match.params.folderId)
+      );
       folderList = <Folder
         key={folderList.id}
         id={folderList.id}
